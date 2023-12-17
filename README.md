@@ -12,7 +12,7 @@ We waarderen bijdragen aan het project! Als je verbeteringen, bugfixes of nieuwe
 
 ## Auteurschap
 
-Dit project is ontwikkeld door [Faaruz]. Als je deze code gebruikt of aanpast voor je eigen projecten, gelieve het originele auteurschap te erkennen door een verwijzing naar deze repository toe te voegen.
+Dit project is ontwikkeld door [Groep - A]. Als je deze code gebruikt of aanpast voor je eigen projecten, gelieve het originele auteurschap te erkennen door een verwijzing naar deze repository toe te voegen.
 
 ## Licentie
 
