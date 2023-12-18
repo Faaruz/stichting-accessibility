@@ -1,0 +1,67 @@
+﻿a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+  font-family: 'Arial', sans-serif; /* Set your preferred font-family */
+  font-size: 1.5rem; /* Adjust the font size as needed */
+  font-weight: bold;
+  color: #333; /* Set your preferred text color */
+  text-decoration: none;
+}
+
+.logo {
+  width: 10%; /* Set initial width to 100% */
+  max-width: 100%;
+  height: auto;
+  margin-right: 10px;
+  animation: spin 15s infinite linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+
+/* 
+    ##Device = Desktops
+    ##Screen = 1281px to higher resolution desktops
+ */
+@media (min-width: 576px) {
+  .logo {
+    width: 10%; /* Adjust the width for devices with a minimum width of 576px */
+  }
+  a.navbar-brand {
+    font-size: 2rem; /* Adjust the font size for small screens */
+  }
+}
+
+/* 
+    ##Device = Laptops, Desktops
+    ##Screen = B/w 1025px to 1280px
+ */
+@media (min-width: 768px) {
+  .logo {
+    width: 5%; /* Adjust the width for devices with a minimum width of 768px */
+  }
+  a.navbar-brand {
+    font-size: 2rem; /* Adjust the font size for small screens */
+  }
+}
