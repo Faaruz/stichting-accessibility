@@ -61,19 +61,19 @@ export class ErvaringsdeskundigeRegistration extends Component {
                         {/* ... form fields for step 1 */}
                         <FormGroup>
                             <Label for="voornaam">Voornaam</Label>
-                            <Input type="text" name="voornaam" id="voornaam" value={formValues.voornaam} onChange={this.handleInputChange} />
+                            <Input type="text" name="voornaam" required={true} id="voornaam" value={formValues.voornaam} onChange={this.handleInputChange} />
                         </FormGroup>
                         <FormGroup>
                             <Label for="achternaam">Achternaam</Label>
-                            <Input type="text" name="achternaam" id="achternaam" value={formValues.achternaam} onChange={this.handleInputChange} />
+                            <Input type="text" name="achternaam" required={true} id="achternaam" value={formValues.achternaam} onChange={this.handleInputChange} />
                         </FormGroup>
                         <FormGroup>
                             <Label for="postcode">Postcode</Label>
-                            <Input type="text" name="postcode" id="postcode" value={formValues.postcode} onChange={this.handleInputChange} />
+                            <Input type="text" name="postcode" required={true} id="postcode" value={formValues.postcode} onChange={this.handleInputChange} />
                         </FormGroup>
                         <FormGroup>
                             <Label for="woonplaats">Woonplaats</Label>
-                            <Input type="text" name="woonplaats" id="woonplaats" value={formValues.woonplaats} onChange={this.handleInputChange} />
+                            <Input type="text" name="woonplaats" required={true} id="woonplaats" value={formValues.woonplaats} onChange={this.handleInputChange} />
                         </FormGroup>
                         <div className="continue-button">
                             <Button color="primary" size="lg" type="submit">
@@ -88,17 +88,18 @@ export class ErvaringsdeskundigeRegistration extends Component {
                         {/* ... form fields for step 2 */}
                         <FormGroup>
                             <Label for="email">E-mail</Label>
-                            <Input type="email" name="email" id="email" value={formValues.email} onChange={this.handleInputChange} />
+                            <Input type="email" name="email" required={true} id="email" value={formValues.email} onChange={this.handleInputChange} />
                         </FormGroup>
                         <FormGroup>
                             <Label for="telefoonnummer">Telefoonnummer</Label>
-                            <Input type="tel" name="telefoonnummer" id="telefoonnummer" value={formValues.telefoonnummer} onChange={this.handleInputChange} />
+                            <Input type="tel" name="telefoonnummer" required={true} id="telefoonnummer" value={formValues.telefoonnummer} onChange={this.handleInputChange} />
                         </FormGroup>
                         <FormGroup>
                             <Label for="wachtwoord">Wachtwoord</Label>
                             <Input
                                 type="password"
                                 name="wachtwoord"
+                                required={true}
                                 id="wachtwoord"
                                 value={formValues.wachtwoord}
                                 onChange={this.handleInputChange}
@@ -109,6 +110,7 @@ export class ErvaringsdeskundigeRegistration extends Component {
                             <Input
                                 type="password"
                                 name="bevestigWachtwoord"
+                                required={true}
                                 id="bevestigWachtwoord"
                                 value={formValues.bevestigWachtwoord}
                                 onChange={this.handleInputChange}

@@ -65,6 +65,7 @@ export class BedrijfRegistration extends Component {
                                 <Input
                                     type="text"
                                     name="voornaam"
+                                    required={true}
                                     id="voornaam"
                                     value={formValues.voornaam}
                                     onChange={this.handleInputChange}
@@ -75,6 +76,7 @@ export class BedrijfRegistration extends Component {
                                 <Input
                                     type="text"
                                     name="achternaam"
+                                    required={true}
                                     id="achternaam"
                                     value={formValues.achternaam}
                                     onChange={this.handleInputChange}
@@ -85,6 +87,7 @@ export class BedrijfRegistration extends Component {
                                 <Input
                                     type="text"
                                     name="bedrijfsnaam"
+                                    required={true}
                                     id="bedrijfsnaam"
                                     value={formValues.bedrijfsnaam}
                                     onChange={this.handleInputChange}
@@ -95,6 +98,7 @@ export class BedrijfRegistration extends Component {
                                 <Input
                                     type="email"
                                     name="email"
+                                    required={true}
                                     id="email"
                                     value={formValues.email}
                                     onChange={this.handleInputChange}
@@ -105,6 +109,7 @@ export class BedrijfRegistration extends Component {
                                 <Input
                                     type="tel"
                                     name="telefoonnummer"
+                                    required={true}
                                     id="telefoonnummer"
                                     value={formValues.telefoonnummer}
                                     onChange={this.handleInputChange}
@@ -128,6 +133,7 @@ export class BedrijfRegistration extends Component {
                                 <Input
                                     type="text"
                                     name="postcode"
+                                    required={true}
                                     id="postcode"
                                     value={formValues.postcode}
                                     onChange={this.handleInputChange}
@@ -138,6 +144,7 @@ export class BedrijfRegistration extends Component {
                                 <Input
                                     type="text"
                                     name="plaats"
+                                    required={true}
                                     id="plaats"
                                     value={formValues.plaats}
                                     onChange={this.handleInputChange}
@@ -149,6 +156,7 @@ export class BedrijfRegistration extends Component {
                                 <Input
                                     type="password"
                                     name="wachtwoord"
+                                    required={true}
                                     id="wachtwoord"
                                     value={formValues.wachtwoord}
                                     onChange={this.handleInputChange}
@@ -159,6 +167,7 @@ export class BedrijfRegistration extends Component {
                                 <Input
                                     type="password"
                                     name="bevestigWachtwoord"
+                                    required={true}
                                     id="bevestigWachtwoord"
                                     value={formValues.bevestigWachtwoord}
                                     onChange={this.handleInputChange}
