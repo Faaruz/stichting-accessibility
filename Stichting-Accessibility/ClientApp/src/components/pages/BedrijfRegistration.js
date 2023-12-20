@@ -11,7 +11,6 @@ const BedrijfRegistration = () => {
         telefoonnummer: '',
         postcode: '',
         plaats: '',
-        gebruikersnaam: '',
         wachtwoord: '',
         bevestigWachtwoord: '',
     });
@@ -123,16 +122,6 @@ const BedrijfRegistration = () => {
                                 />
                             </FormGroup>
                             <p>Login met Google, Microsoft of handmatig</p>
-                            <FormGroup>
-                                <Label for="gebruikersnaam">Gebruikersnaam</Label>
-                                <Input
-                                    type="text"
-                                    name="gebruikersnaam"
-                                    id="gebruikersnaam"
-                                    value={formValues.gebruikersnaam}
-                                    onChange={handleInputChange}
-                                />
-                            </FormGroup>
                             <FormGroup>
                                 <Label for="wachtwoord">Wachtwoord</Label>
                                 <Input

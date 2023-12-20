@@ -10,10 +10,6 @@ const ErvaringsdeskundigeRegistration = () => {
         woonplaats: '',
         email: '',
         telefoonnummer: '',
-        typeBeperking: '',
-        hulpmiddelen: '',
-        ziektes: '',
-        gebruikersnaam: '',
         wachtwoord: '',
         bevestigWachtwoord: '',
     });
