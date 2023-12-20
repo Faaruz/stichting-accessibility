@@ -1,12 +1,12 @@
-﻿// Registration.js
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Button } from 'reactstrap';
 import SharedLayout from './SharedLayout';
 import BedrijfRegistration from './BedrijfRegistration'; // Import the BedrijfRegistration component
+import ErvaringsdeskundigeRegistration from './ErvaringsdeskundigeRegistration'; // Import the ErvaringsdeskundigeRegistration component
 import '../css/registration.css'; // Import the registration CSS file
 
 const Registration = () => {
-    // State to track the selected option and whether to show BedrijfRegistration
+    // State to track the selected option and whether to show BedrijfRegistration or ErvaringsdeskundigeRegistration
     const [selectedOption, setSelectedOption] = useState(null);
 
     // Function to handle checkbox selection
@@ -16,7 +16,7 @@ const Registration = () => {
 
     // Function to handle "Ga verder" button click
     const handleContinueButtonClick = () => {
-        // Add any additional logic needed before showing BedrijfRegistration
+        // Add any additional logic needed before showing BedrijfRegistration or ErvaringsdeskundigeRegistration
     };
 
     return (
@@ -47,8 +47,10 @@ const Registration = () => {
                 </div>
             </div>
             {selectedOption === 'bedrijf' && <BedrijfRegistration />} {/* Render BedrijfRegistration if 'bedrijf' is selected */}
+            {selectedOption === 'ervaringsdeskundige' && <ErvaringsdeskundigeRegistration />} {/* Render ErvaringsdeskundigeRegistration if 'ervaringsdeskundige' is selected */}
         </SharedLayout>
     );
 };
 
 export { Registration };
+

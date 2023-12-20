@@ -125,7 +125,7 @@ const BedrijfRegistration = () => {
                                     onChange={handleInputChange}
                                 />
                             </FormGroup>
-                            <p>Login with Google, Microsoft of handmatig</p>
+                            <p>Login met Google, Microsoft of handmatig</p>
                             <FormGroup>
                                 <Label for="gebruikersnaam">Gebruikersnaam</Label>
                                 <Input
