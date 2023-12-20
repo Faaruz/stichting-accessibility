@@ -16,6 +16,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: build
+        run: npm run test --if-present
+        env:
+          CI: false
+
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v1
         with:
