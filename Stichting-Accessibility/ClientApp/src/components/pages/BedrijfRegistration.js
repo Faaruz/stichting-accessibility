@@ -1,42 +1,64 @@
-﻿import React, { useState } from 'react';
+﻿import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import ErvaringsdeskundigeRegistration from "./ErvaringsdeskundigeRegistration";
 
-const BedrijfRegistration = () => {
-    // State to track form values and step
-    const [formValues, setFormValues] = useState({
-        voornaam: '',
-        achternaam: '',
-        bedrijfsnaam: '',
-        email: '',
-        telefoonnummer: '',
-        postcode: '',
-        plaats: '',
-        wachtwoord: '',
-        bevestigWachtwoord: '',
-    });
-    const [step, setStep] = useState(1);
+export class BedrijfRegistration extends Component {
+    static displayName = BedrijfRegistration.name;
+    constructor(props) {
+        super(props);
+
+        // State to track form values and step
+        this.state = {
+            formValues: {
+                voornaam: '',
+                achternaam: '',
+                bedrijfsnaam: '',
+                email: '',
+                telefoonnummer: '',
+                postcode: '',
+                plaats: '',
+                wachtwoord: '',
+                bevestigWachtwoord: '',
+            },
+            step: 1,
+        };
+    }
 
     // Function to handle form field changes
-    const handleInputChange = (e) => {
+    handleInputChange = (e) => {
         const { name, value } = e.target;
-        setFormValues({
-            ...formValues,
-            [name]: value,
-        });
+        this.setState((prevState) => ({
+            formValues: {
+                ...prevState.formValues,
+                [name]: value,
+            },
+        }));
     };
 
     // Function to handle form submission and navigate to the next step
-    const handleNextStep = (e) => {
+    handleNextStep = (e) => {
         e.preventDefault();
-        setStep(step + 1);
+        this.setState((prevState) => ({
+            step: prevState.step + 1,
+        }));
+    };
+    
+    // Function to handle form submission
+    handleFormSubmit = (e) => {
+        e.preventDefault();
+        // Add any additional logic needed for form submission
+        console.log('Form submitted:', this.state.formValues);
     };
 
-    return (
+    render() {
+        const { formValues, step } = this.state;
+
+        return (
             <div className="bedrijf-registration-page">
                 <h2>Bedrijfsregistratie</h2>
                 {step === 1 && (
                     <>
-                        <Form onSubmit={handleNextStep}>
+                        <Form onSubmit={this.handleNextStep}>
                             {/* ... form fields for step 1 */}
                             <FormGroup>
                                 <Label for="voornaam">Voornaam contactpersoon</Label>
@@ -45,7 +67,7 @@ const BedrijfRegistration = () => {
                                     name="voornaam"
                                     id="voornaam"
                                     value={formValues.voornaam}
-                                    onChange={handleInputChange}
+                                    onChange={this.handleInputChange}
                                 />
                             </FormGroup>
                             <FormGroup>
@@ -55,7 +77,7 @@ const BedrijfRegistration = () => {
                                     name="achternaam"
                                     id="achternaam"
                                     value={formValues.achternaam}
-                                    onChange={handleInputChange}
+                                    onChange={this.handleInputChange}
                                 />
                             </FormGroup>
                             <FormGroup>
@@ -65,7 +87,7 @@ const BedrijfRegistration = () => {
                                     name="bedrijfsnaam"
                                     id="bedrijfsnaam"
                                     value={formValues.bedrijfsnaam}
-                                    onChange={handleInputChange}
+                                    onChange={this.handleInputChange}
                                 />
                             </FormGroup>
                             <FormGroup>
@@ -75,7 +97,7 @@ const BedrijfRegistration = () => {
                                     name="email"
                                     id="email"
                                     value={formValues.email}
-                                    onChange={handleInputChange}
+                                    onChange={this.handleInputChange}
                                 />
                             </FormGroup>
                             <FormGroup>
@@ -85,7 +107,7 @@ const BedrijfRegistration = () => {
                                     name="telefoonnummer"
                                     id="telefoonnummer"
                                     value={formValues.telefoonnummer}
-                                    onChange={handleInputChange}
+                                    onChange={this.handleInputChange}
                                 />
                             </FormGroup>
                             <div className="continue-button">
@@ -99,7 +121,7 @@ const BedrijfRegistration = () => {
 
                 {step === 2 && (
                     <>
-                        <Form>
+                        <Form onSubmit={this.handleFormSubmit}>
                             {/* ... form fields for step 2 */}
                             <FormGroup>
                                 <Label for="postcode">Postcode</Label>
@@ -108,7 +130,7 @@ const BedrijfRegistration = () => {
                                     name="postcode"
                                     id="postcode"
                                     value={formValues.postcode}
-                                    onChange={handleInputChange}
+                                    onChange={this.handleInputChange}
                                 />
                             </FormGroup>
                             <FormGroup>
@@ -118,7 +140,7 @@ const BedrijfRegistration = () => {
                                     name="plaats"
                                     id="plaats"
                                     value={formValues.plaats}
-                                    onChange={handleInputChange}
+                                    onChange={this.handleInputChange}
                                 />
                             </FormGroup>
                             <p>Login met Google, Microsoft of handmatig</p>
@@ -129,7 +151,7 @@ const BedrijfRegistration = () => {
                                     name="wachtwoord"
                                     id="wachtwoord"
                                     value={formValues.wachtwoord}
-                                    onChange={handleInputChange}
+                                    onChange={this.handleInputChange}
                                 />
                             </FormGroup>
                             <FormGroup>
@@ -139,7 +161,7 @@ const BedrijfRegistration = () => {
                                     name="bevestigWachtwoord"
                                     id="bevestigWachtwoord"
                                     value={formValues.bevestigWachtwoord}
-                                    onChange={handleInputChange}
+                                    onChange={this.handleInputChange}
                                 />
                             </FormGroup>
                             <div className="continue-button">
@@ -151,11 +173,8 @@ const BedrijfRegistration = () => {
                     </>
                 )}
             </div>
-    );
-};
+        );
+    }
+}
 
 export default BedrijfRegistration;
-
-
-
-

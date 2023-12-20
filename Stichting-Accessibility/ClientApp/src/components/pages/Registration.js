@@ -1,24 +1,33 @@
-﻿import React, { useState } from 'react';
-import { Button } from 'reactstrap';
-import BedrijfRegistration from './BedrijfRegistration'; // Import the BedrijfRegistration component
-import ErvaringsdeskundigeRegistration from './ErvaringsdeskundigeRegistration'; // Import the ErvaringsdeskundigeRegistration component
-import '../css/registration.css'; // Import the registration CSS file
+﻿import React, { Component } from 'react';
+import BedrijfRegistration from './BedrijfRegistration';
+import ErvaringsdeskundigeRegistration from './ErvaringsdeskundigeRegistration';
+import '../css/registration.css';
 
-const Registration = () => {
-    // State to track the selected option and whether to show BedrijfRegistration or ErvaringsdeskundigeRegistration
-    const [selectedOption, setSelectedOption] = useState(null);
+export class Registration extends Component {
+    static displayName = Registration.name;
+    constructor(props) {
+        super(props);
+
+        // State to track the selected option and whether to show BedrijfRegistration or ErvaringsdeskundigeRegistration
+        this.state = {
+            selectedOption: null,
+        };
+    }
 
     // Function to handle checkbox selection
-    const handleCheckboxChange = (option) => {
-        setSelectedOption(option);
+    handleCheckboxChange = (option) => {
+        this.setState({ selectedOption: option });
     };
 
     // Function to handle "Ga verder" button click
-    const handleContinueButtonClick = () => {
+    handleContinueButtonClick = () => {
         // Add any additional logic needed before showing BedrijfRegistration or ErvaringsdeskundigeRegistration
     };
 
-    return (
+    render() {
+        const { selectedOption } = this.state;
+
+        return (
             <div className="registration-page">
                 <h2>Bent u een ervaringsdeskundige of bent u een bedrijf?</h2>
                 <div className="registration-options">
@@ -27,8 +36,8 @@ const Registration = () => {
                             type="checkbox"
                             value="ervaringsdeskundige"
                             checked={selectedOption === 'ervaringsdeskundige'}
-                            onChange={() => handleCheckboxChange('ervaringsdeskundige')}
-                            className="registration-checkbox" // Apply the registration CSS class
+                            onChange={() => this.handleCheckboxChange('ervaringsdeskundige')}
+                            className="registration-checkbox"
                         />
                         Ervaringsdeskundige
                     </label>
@@ -37,17 +46,15 @@ const Registration = () => {
                             type="checkbox"
                             value="bedrijf"
                             checked={selectedOption === 'bedrijf'}
-                            onChange={() => handleCheckboxChange('bedrijf')}
-                            className="registration-checkbox" // Apply the registration CSS class
+                            onChange={() => this.handleCheckboxChange('bedrijf')}
+                            className="registration-checkbox"
                         />
                         Bedrijf
                     </label>
                 </div>
-            {selectedOption === 'bedrijf' && <BedrijfRegistration />} {/* Render BedrijfRegistration if 'bedrijf' is selected */}
-            {selectedOption === 'ervaringsdeskundige' && <ErvaringsdeskundigeRegistration />} {/* Render ErvaringsdeskundigeRegistration if 'ervaringsdeskundige' is selected */}
+                {selectedOption === 'bedrijf' && <BedrijfRegistration />}
+                {selectedOption === 'ervaringsdeskundige' && <ErvaringsdeskundigeRegistration />}
             </div>
-    );
-};
-
-export { Registration };
-
+        );
+    }
+}

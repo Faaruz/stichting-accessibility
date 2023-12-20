@@ -3,7 +3,7 @@
   text-align: center;
   word-break: break-all;
   font-family: 'Arial', sans-serif; /* Set your preferred font-family */
-  font-size: 1.5rem; /* Adjust the font size as needed */
+  font-size: 1rem; /* Adjust the font size as needed */
   font-weight: bold;
   color: #333; /* Set your preferred text color */
   text-decoration: none;
@@ -59,7 +59,7 @@ html {
  */
 @media (min-width: 768px) {
   .logo {
-    width: 5%; /* Adjust the width for devices with a minimum width of 768px */
+    width: 4%; /* Adjust the width for devices with a minimum width of 768px */
   }
   a.navbar-brand {
     font-size: 2rem; /* Adjust the font size for small screens */
