@@ -1,11 +1,9 @@
 import React from 'react';
 import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import SharedLayout from './SharedLayout';
 import '../css/home.css';
 const Home = () => {
     return (
-        <SharedLayout>
             <div className="landing-page">
                 <div className="landing-content fade-up">
                     <h1 className="welcome-text">Welkom bij Stichting Accessibility!</h1>
@@ -17,7 +15,6 @@ const Home = () => {
                     </Link>
                 </div>
             </div>
-        </SharedLayout>
     );
 };
 

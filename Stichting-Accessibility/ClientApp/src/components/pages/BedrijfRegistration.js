@@ -1,7 +1,5 @@
-﻿// BedrijfRegistration.js
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import SharedLayout from './SharedLayout';
 
 const BedrijfRegistration = () => {
     // State to track form values and step
@@ -35,7 +33,6 @@ const BedrijfRegistration = () => {
     };
 
     return (
-        <SharedLayout>
             <div className="bedrijf-registration-page">
                 <h2>Bedrijfsregistratie</h2>
                 {step === 1 && (
@@ -165,7 +162,6 @@ const BedrijfRegistration = () => {
                     </>
                 )}
             </div>
-        </SharedLayout>
     );
 };
 

@@ -1,7 +1,6 @@
 ﻿// ErvaringsdeskundigeRegistration.js
 import React, { useState } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import SharedLayout from './SharedLayout';
 
 const ErvaringsdeskundigeRegistration = () => {
     // State to track form values and step
@@ -34,7 +33,6 @@ const ErvaringsdeskundigeRegistration = () => {
     };
 
     return (
-        <SharedLayout>
             <div className="ervaringsdeskundige-registration-page">
                 <h2>Ervaringsdeskundige Registratie</h2>
 
@@ -88,6 +86,7 @@ const ErvaringsdeskundigeRegistration = () => {
                                 <option value="">Selecteer...</option>
                                 <option value="fysiek">Fysieke beperking</option>
                                 <option value="visueel">Visuele beperking</option>
+                                <option value="visueel">Mentale beperking</option>
                                 {/* Add more options as needed */}
                             </Input>
                         </FormGroup>
@@ -102,6 +101,7 @@ const ErvaringsdeskundigeRegistration = () => {
                             >
                                 <option value="">Selecteer...</option>
                                 <option value="braille">Braille</option>
+                                <option value="texttospeach">Voorlees Software</option>
                                 <option value="geleidehond">Geleidehond</option>
                                 <option value="Geen Hulpmiddelen">Geen Hulpmiddel</option>
                                 {/* Add more options as needed */}
@@ -149,7 +149,6 @@ const ErvaringsdeskundigeRegistration = () => {
                     </Form>
                 )}
             </div>
-        </SharedLayout>
     );
 };
 

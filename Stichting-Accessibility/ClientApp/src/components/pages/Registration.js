@@ -1,6 +1,5 @@
 ﻿import React, { useState } from 'react';
 import { Button } from 'reactstrap';
-import SharedLayout from './SharedLayout';
 import BedrijfRegistration from './BedrijfRegistration'; // Import the BedrijfRegistration component
 import ErvaringsdeskundigeRegistration from './ErvaringsdeskundigeRegistration'; // Import the ErvaringsdeskundigeRegistration component
 import '../css/registration.css'; // Import the registration CSS file
@@ -20,7 +19,6 @@ const Registration = () => {
     };
 
     return (
-        <SharedLayout>
             <div className="registration-page">
                 <h2>Bent u een ervaringsdeskundige of bent u een bedrijf?</h2>
                 <div className="registration-options">
@@ -45,10 +43,9 @@ const Registration = () => {
                         Bedrijf
                     </label>
                 </div>
-            </div>
             {selectedOption === 'bedrijf' && <BedrijfRegistration />} {/* Render BedrijfRegistration if 'bedrijf' is selected */}
             {selectedOption === 'ervaringsdeskundige' && <ErvaringsdeskundigeRegistration />} {/* Render ErvaringsdeskundigeRegistration if 'ervaringsdeskundige' is selected */}
-        </SharedLayout>
+            </div>
     );
 };
 
