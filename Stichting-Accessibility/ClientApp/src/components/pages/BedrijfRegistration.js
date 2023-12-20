@@ -1,4 +1,4 @@
-﻿import React, { Component } from 'react';
+import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import ErvaringsdeskundigeRegistration from "./ErvaringsdeskundigeRegistration";
 

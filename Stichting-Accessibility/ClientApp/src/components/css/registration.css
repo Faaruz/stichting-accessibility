@@ -1,19 +1,17 @@
-﻿.checkbox-label {
+﻿.radio-label {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
 }
 
-.checkbox-label input {
+.radio-label input {
     margin-right: 10px;
-    appearance: none;
     width: 20px;
     height: 20px;
     border: 2px solid #000;
-    border-radius: 50%;
     cursor: pointer;
 }
 
-.checkbox-label input:checked {
+.radio-label input:checked {
     background-color: #000;
 }

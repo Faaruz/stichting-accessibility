@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, CardBody, CardTitle, Collapse, Button } from 'reactstrap';
 
 const Research = () => {

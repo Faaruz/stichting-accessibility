@@ -1,4 +1,4 @@
-﻿// BedrijfDashboard.js
+// BedrijfDashboard.js
 import React, { Component } from 'react';
 import { fetchOnderzoeken } from '../services/onderzoekenService';
 import '../css/bedrijfportaal.css';

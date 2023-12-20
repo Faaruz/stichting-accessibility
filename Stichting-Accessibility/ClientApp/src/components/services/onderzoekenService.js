@@ -1,4 +1,4 @@
-﻿// Assuming you have a service to fetch onderzoeken data
+// Assuming you have a service to fetch onderzoeken data
 // Create a service (e.g., OnderzoekenService.js) to handle data fetching.
 
 // OnderzoekenService.js

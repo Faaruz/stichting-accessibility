@@ -1,4 +1,4 @@
-﻿import React, { Component } from 'react';
+import React, { Component } from 'react';
 import BedrijfRegistration from './BedrijfRegistration';
 import ErvaringsdeskundigeRegistration from './ErvaringsdeskundigeRegistration';
 import '../css/registration.css';
@@ -31,19 +31,18 @@ export class Registration extends Component {
             <div className="registration-page">
                 <h2>Bent u een ervaringsdeskundige of bent u een bedrijf?</h2>
                 <div className="registration-options">
-                    <label className="checkbox-label">
+                    <label className="radio-label">
                         <input
-                            type="checkbox"
+                            type="radio"
                             value="ervaringsdeskundige"
                             checked={selectedOption === 'ervaringsdeskundige'}
                             onChange={() => this.handleCheckboxChange('ervaringsdeskundige')}
-                            className="registration-checkbox"
-                        />
+                            className="registration-checkbox"/>
                         Ervaringsdeskundige
                     </label>
-                    <label className="checkbox-label">
+                    <label className="radio-label">
                         <input
-                            type="checkbox"
+                            type="radio"
                             value="bedrijf"
                             checked={selectedOption === 'bedrijf'}
                             onChange={() => this.handleCheckboxChange('bedrijf')}
