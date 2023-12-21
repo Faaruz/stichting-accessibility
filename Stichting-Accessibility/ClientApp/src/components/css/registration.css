@@ -1,17 +1,12 @@
-﻿.radio-label {
+﻿.radio-label input:checked {
+    background-color: #000;
+}
+.registration-options {
+    display: flex;
+    gap: 20px; /* Adjust the gap according to your design */
+}
+
+.radio-label {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
-}
-
-.radio-label input {
-    margin-right: 10px;
-    width: 20px;
-    height: 20px;
-    border: 2px solid #000;
-    cursor: pointer;
-}
-
-.radio-label input:checked {
-    background-color: #000;
 }
