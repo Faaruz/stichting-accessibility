@@ -1,10 +1,11 @@
 import ApiAuthorzationRoutes from './components/api-authorization/ApiAuthorizationRoutes';
-import { Home } from "./components/pages/Home";
-import {Registration} from "./components/pages/Registration";
-import {BedrijfRegistration} from "./components/pages/BedrijfRegistration";
-import {BedrijfDashboard} from "./components/pages/BedrijfDashboard";
-import {ErvaringsdeskundigeRegistration} from "./components/pages/ErvaringsdeskundigeRegistration";
-import {Onboarding} from "./components/pages/Onboarding";
+import Home from "./components/pages/Home";  // Import as default
+import Registration from "./components/pages/Registration";
+import BedrijfRegistration from "./components/pages/BedrijfRegistration"; // Without curly braces
+import BedrijfDashboard from "./components/pages/BedrijfDashboard";
+import ErvaringsdeskundigeRegistration from "./components/pages/ErvaringsdeskundigeRegistration";
+import Onboarding from "./components/pages/Onboarding";
+import Research from "./components/pages/Research";
 
 const AppRoutes = [
   {
@@ -22,7 +23,7 @@ const AppRoutes = [
   {
     path: "/ervaringsdeskundigeregistration",
     element: <ErvaringsdeskundigeRegistration />
-  },  
+  },
   {
     path: "/dashboard",
     element: <BedrijfDashboard />
@@ -30,7 +31,11 @@ const AppRoutes = [
   {
     path: "/onboarding",
     element: <Onboarding />
-  },  
+  },
+  {
+    path: "/research",
+    element: <Research />
+  },
   ...ApiAuthorzationRoutes
 ];
 

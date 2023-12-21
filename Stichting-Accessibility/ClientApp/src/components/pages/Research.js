@@ -9,9 +9,9 @@ const Research = () => {
     useEffect(() => {
         // Simulated data for demonstration purposes
         const simulatedData = [
-            { id: 1, companyName: 'Bakker Bart', details: 'Details about Bakker Bart onderzoek' },
-            { id: 2, companyName: 'Albert Heijn', details: 'Details about Albert Heijn onderzoek' },
-            { id: 3, companyName: 'Gem. Den Haag', details: 'Details about Gem. Den Haag onderzoek' },
+            { id: 1, companyName: 'Bakker Bart', details: 'Details about Bakker Bart onderzoek', isOpen: false },
+            { id: 2, companyName: 'Albert Heijn', details: 'Details about Albert Heijn onderzoek', isOpen: false },
+            { id: 3, companyName: 'Gem. Den Haag', details: 'Details about Gem. Den Haag onderzoek', isOpen: false },
         ];
 
         setOnderzoeken(simulatedData);
@@ -45,4 +45,4 @@ const Research = () => {
     );
 };
 
-export { Research };
+export default Research;

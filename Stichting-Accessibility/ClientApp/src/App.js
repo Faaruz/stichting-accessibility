@@ -23,7 +23,6 @@ export default class App extends Component {
                         );
                     })}
                     {/* Add the Research route */}
-                    <Route path="/research" element={<Research />} />
                 </Routes>
             </Layout>
         );

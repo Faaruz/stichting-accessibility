@@ -1,82 +1,82 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
-export class Onboarding extends Component {
-    static displayName = Onboarding.name;
+const Onboarding = () => {
+    const [formData, setFormData] = useState({
+        typeBeperking: '',
+        hulpmiddelen: '',
+        ziektes: '',
+    });
 
-    constructor(props) {
-        super(props);
+    const typeBeperkingOptions = ['Option 1', 'Option 2', 'Option 3'];
+    const hulpmiddelenOptions = ['Option A', 'Option B', 'Option C'];
 
-        // State to hold selected options
-        this.state = {
-            typeBeperking: '',
-            hulpmiddelen: '',
-            ziektes: '',
-        };
-    }
-
-    handleSelectChange = (e) => {
+    const handleSelectChange = (e) => {
         const { name, value } = e.target;
-        this.setState({ [name]: value });
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
     };
 
-    handleSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         // TODO: Handle form submission, e.g., send data to a server
-        console.log('Form submitted with data:', this.state);
+        console.log('Form submitted with data:', formData);
     };
 
-    render() {
-        const typeBeperkingOptions = ['Option 1', 'Option 2', 'Option 3'];
-        const hulpmiddelenOptions = ['Option A', 'Option B', 'Option C'];
-
-        return (
-            <div className="onboarding">
-                <div className="onboarding-content fade-up">
-                </div>
-                <Form className="fade-up" onSubmit={this.handleSubmit}>
-                    <FormGroup>
-                        <Label for="typeBeperking">Type Beperking</Label>
-                        <Input
-                            type="select"
-                            name="typeBeperking"
-                            id="typeBeperking"
-                            value={this.state.typeBeperking}
-                            onChange={this.handleSelectChange}
-                        >
-                            <option value="" disabled>Select an option</option>
-                            {typeBeperkingOptions.map((option, index) => (
-                                <option key={index} value={option}>{option}</option>
-                            ))}
-                        </Input>
-                    </FormGroup>
-                    <FormGroup>
-                        <Label for="hulpmiddelen">Hulpmiddelen</Label>
-                        <Input
-                            type="select"
-                            name="hulpmiddelen"
-                            id="hulpmiddelen"
-                            value={this.state.hulpmiddelen}
-                            onChange={this.handleSelectChange}
-                        >
-                            <option value="" disabled>Select an option</option>
-                            {hulpmiddelenOptions.map((option, index) => (
-                                <option key={index} value={option}>{option}</option>
-                            ))}
-                        </Input>
-                    </FormGroup>
-                    <FormGroup>
-                        <Label for="ziektes">Ziektes</Label>
-                        <Input
-                            type="input"
-                            name="ziektes"
-                            id="ziektes"
-                            value={this.state.ziektes}
-                            onChange={this.handleSelectChange}>
-                        </Input>
-                    </FormGroup>
-                </Form>
+    return (
+        <div className="onboarding">
+            <div className="onboarding-content fade-up">
+                {/* Your content here */}
             </div>
-        );
-    }
-}
+            <Form className="fade-up" onSubmit={handleSubmit}>
+                <FormGroup>
+                    <Label for="typeBeperking">Type Beperking</Label>
+                    <Input
+                        type="select"
+                        name="typeBeperking"
+                        id="typeBeperking"
+                        value={formData.typeBeperking}
+                        onChange={handleSelectChange}
+                    >
+                        <option value="" disabled>Select an option</option>
+                        {typeBeperkingOptions.map((option, index) => (
+                            <option key={index} value={option}>{option}</option>
+                        ))}
+                    </Input>
+                </FormGroup>
+                <FormGroup>
+                    <Label for="hulpmiddelen">Hulpmiddelen</Label>
+                    <Input
+                        type="select"
+                        name="hulpmiddelen"
+                        id="hulpmiddelen"
+                        value={formData.hulpmiddelen}
+                        onChange={handleSelectChange}
+                    >
+                        <option value="" disabled>Select an option</option>
+                        {hulpmiddelenOptions.map((option, index) => (
+                            <option key={index} value={option}>{option}</option>
+                        ))}
+                    </Input>
+                </FormGroup>
+                <FormGroup>
+                    <Label for="ziektes">Ziektes</Label>
+                    <Input
+                        type="input"
+                        name="ziektes"
+                        id="ziektes"
+                        value={formData.ziektes}
+                        onChange={handleSelectChange}
+                    />
+                </FormGroup>
+                <Button color="primary" size="lg" type="submit">
+                    Submit
+                </Button>
+            </Form>
+        </div>
+    );
+};
+
+export default Onboarding;
