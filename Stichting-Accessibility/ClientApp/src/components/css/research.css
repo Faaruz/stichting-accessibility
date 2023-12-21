@@ -1,0 +1,15 @@
+/* Add this style to your CSS file or in the style tag in your component */
+.scrollable-section {
+    overflow: auto; /* Allow scrolling */
+    max-height: 500px; /* Set a max height or adjust based on your design */
+}
+
+/* Apply the scrollable-section class to the container of your research cards */
+.onderzoeken-page {
+    /* Your existing styles for onderzoeken-page */
+
+    /* Add the scrollable-section class */
+    overflow: auto;
+}
+
+/* Rest of your existing styles */
