@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import PrivacyPopup from './PrivacyAgreement';
 
 const ErvaringsdeskundigeRegistration = () => {
     const [formValues, setFormValues] = useState({
@@ -11,7 +12,17 @@ const ErvaringsdeskundigeRegistration = () => {
         telefoonnummer: '',
         wachtwoord: '',
         bevestigWachtwoord: '',
+        privacyConsent: false,
     });
+    const [privacyPopupOpen, setPrivacyPopupOpen] = useState(false);
+
+    const togglePrivacyPopup = () => {
+        setPrivacyPopupOpen(!privacyPopupOpen);
+    };
+    const handleCheckboxClick = () => {
+        // Open the privacy popup when the word "privacyverklaring" is clicked
+        togglePrivacyPopup();
+    };
 
     const [step, setStep] = useState(1);
     const [errors, setErrors] = useState({});
@@ -39,11 +50,15 @@ const ErvaringsdeskundigeRegistration = () => {
         }
 
         // Check if postcode has the format of 4 numbers and 2 letters
-        const postcodeRegex = /^\d{4}[A-Za-z]{2}$/;
-        if (name === 'postcode' && !postcodeRegex.test(value)) {
-            newErrors.postcode = 'Ongeldige postcode-indeling.';
-        } else {
-            delete newErrors.postcode;
+        if (name === 'postcode') {
+            // Remove spaces and then validate
+            const formattedValue = value.replace(/\s/g, '');
+            const postcodeRegex = /^\d{4}[A-Za-z]{2}$/;
+            if (!postcodeRegex.test(formattedValue)) {
+                newErrors.postcode = 'Ongeldige postcode-indeling. Een postcode bestaat uit 4 cijfers en 2 letters.';
+            } else {
+                delete newErrors.postcode;
+            }
         }
 
         // Check if woonplaats only contains letters (including spaces)
@@ -239,6 +254,23 @@ const ErvaringsdeskundigeRegistration = () => {
                             <span className="error-message">{errors.bevestigWachtwoord}</span>
                         )}
                     </FormGroup>
+                    <FormGroup check>
+                        <Label check>
+                            <Input
+                                type="checkbox"
+                                name="privacyConsent"
+                                checked={formValues.privacyConsent}
+                                onChange={handleInputChange}
+                            />{' '}
+                            Ik stem in met de{' '}
+                            <span
+                                style={{ color: 'blue', cursor: 'pointer', textDecoration: 'underline' }}
+                                onClick={handleCheckboxClick}
+                            >
+                                privacyverklaring
+                            </span>
+                        </Label>
+                    </FormGroup>
                     <div className="continue-button">
                         <Button color="primary" size="lg" type="submit">
                             Voltooien
@@ -246,6 +278,7 @@ const ErvaringsdeskundigeRegistration = () => {
                     </div>
                 </Form>
             )}
+            <PrivacyPopup isOpen={privacyPopupOpen} toggle={togglePrivacyPopup}/>
         </div>
     );
 };

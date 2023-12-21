@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import PrivacyPopup from './PrivacyAgreement';
 
 const BedrijfRegistration = () => {
     const [formValues, setFormValues] = useState({
@@ -12,10 +13,21 @@ const BedrijfRegistration = () => {
         plaats: '',
         wachtwoord: '',
         bevestigWachtwoord: '',
+        privacyConsent: false,
     });
 
     const [step, setStep] = useState(1);
     const [errors, setErrors] = useState({});
+    const [privacyPopupOpen, setPrivacyPopupOpen] = useState(false);
+
+    const togglePrivacyPopup = () => {
+        setPrivacyPopupOpen(!privacyPopupOpen);
+    };
+
+    const handleCheckboxClick = () => {
+        // Open the privacy popup when the word "privacyverklaring" is clicked
+        togglePrivacyPopup();
+    };
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -47,14 +59,18 @@ const BedrijfRegistration = () => {
             delete newErrors.telefoonnummer;
         }
 
-        // Check if postcode has the format of 4 numbers and 2 letters
-        const postcodeRegex = /^\d{4}[A-Za-z]{2}$/;
-        if (name === 'postcode' && !postcodeRegex.test(value)) {
-            newErrors.postcode = 'Ongeldige postcode-indeling.';
-        } else {
-            delete newErrors.postcode;
+        // Allow spaces in the postcode
+        if (name === 'postcode') {
+            // Remove spaces and then validate
+            const formattedValue = value.replace(/\s/g, '');
+            const postcodeRegex = /^\d{4}[A-Za-z]{2}$/;
+            if (!postcodeRegex.test(formattedValue)) {
+                newErrors.postcode = 'Ongeldige postcode-indeling. Een postcode bestaat uit 4 cijfers en 2 letters.';
+            } else {
+                delete newErrors.postcode;
+            }
         }
-        
+
         // Check if plaats only contains letters (including spaces)
         const plaatsRegex = /^[a-zA-Z\s]+$/;
         if (name === 'plaats' && !plaatsRegex.test(value)) {
@@ -229,7 +245,6 @@ const BedrijfRegistration = () => {
                                 <span className="error-message">{errors.plaats}</span>
                             )}
                         </FormGroup>
-                        <p>Login met Google, Microsoft of handmatig</p>
                         <FormGroup>
                             <Label for="wachtwoord">Wachtwoord</Label>
                             <Input
@@ -258,6 +273,23 @@ const BedrijfRegistration = () => {
                                 <span className="error-message">{errors.bevestigWachtwoord}</span>
                             )}
                         </FormGroup>
+                        <FormGroup check>
+                            <Label check>
+                                <Input
+                                    type="checkbox"
+                                    name="privacyConsent"
+                                    checked={formValues.privacyConsent}
+                                    onChange={handleInputChange}
+                                />{' '}
+                                Ik stem in met de{' '}
+                                <span
+                                    style={{ color: 'blue', cursor: 'pointer', textDecoration: 'underline' }}
+                                    onClick={handleCheckboxClick}
+                                >
+                                    privacyverklaring
+                                </span>
+                            </Label>
+                        </FormGroup>
                         <div className="continue-button">
                             <Button color="primary" size="lg" type="submit">
                                 Voltooien
@@ -266,6 +298,7 @@ const BedrijfRegistration = () => {
                     </Form>
                 </>
             )}
+            <PrivacyPopup isOpen={privacyPopupOpen} toggle={togglePrivacyPopup} />
         </div>
     );
 };
