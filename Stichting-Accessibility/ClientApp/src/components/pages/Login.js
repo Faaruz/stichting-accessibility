@@ -1,10 +1,10 @@
 ﻿import React, { useState } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import axios from "axios";
 import {useAuth} from "../services/AuthContext";
+import axios from 'axios';
 
-const apiBaseUrl = 'https://localhost:7294/api';
+const apiBaseUrl = 'https://stichtingaccessibilitywebapp.azurewebsites.net/api';
 const Login = () => {
     const { login } = useAuth();
 
