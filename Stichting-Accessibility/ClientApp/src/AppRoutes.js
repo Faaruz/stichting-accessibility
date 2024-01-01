@@ -6,6 +6,7 @@ import BedrijfDashboard from "./components/pages/BedrijfDashboard";
 import ErvaringsdeskundigeRegistration from "./components/pages/ErvaringsdeskundigeRegistration";
 import Onboarding from "./components/pages/Onboarding";
 import Research from "./components/pages/Research";
+import Login from "./components/pages/Login";
 
 const AppRoutes = [
   {
@@ -35,6 +36,10 @@ const AppRoutes = [
   {
     path: "/research",
     element: <Research />
+  },
+  {
+    path: "/login",
+    element: <Login/>
   },
   ...ApiAuthorzationRoutes
 ];

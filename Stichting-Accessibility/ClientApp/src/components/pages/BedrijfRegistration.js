@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import PrivacyPopup from './PrivacyAgreement';
 
-const BedrijfRegistration = () => {
+const BedrijfRegistration = ({ onSubmit }) => {
     const [formValues, setFormValues] = useState({
         voornaam: '',
         achternaam: '',
@@ -10,7 +10,7 @@ const BedrijfRegistration = () => {
         email: '',
         telefoonnummer: '',
         postcode: '',
-        plaats: '',
+        woonplaats: '',
         wachtwoord: '',
         bevestigWachtwoord: '',
         privacyConsent: false,
@@ -118,13 +118,18 @@ const BedrijfRegistration = () => {
             /^(?=.*[A-Z])(?=.*[!@#$%^&*])(.{8,})$/.test(formValues.wachtwoord);
 
         if (isFormValid && passwordCriteriaMet) {
-            // Add any additional logic needed for form submission
-            console.log('Form submitted:', formValues);
+            // Add the 'role' to the form data
+            const formDataWithRole = { ...formValues, role: 'bedrijf' };
+
+            // Make the API request with the updated form data
+            console.log('Form submitted:', formDataWithRole);
+            // Call the provided onSubmit function with the form data
+            onSubmit(formDataWithRole);
         } else {
             // Password mismatch error message
             setErrors((prevErrors) => ({
                 ...prevErrors,
-                bevestigWachtwoord: 'Wachtwoord en bevestig wachtwoord moeten overeenkomen, teminste 8 tekens lang zijn en een hoofdletter en leesteken bevatten.',
+                bevestigWachtwoord: 'Wachtwoord en bevestig wachtwoord moeten overeenkomen, tenminste 8 tekens lang zijn en een hoofdletter en leesteken bevatten.',
             }));
         }
     };

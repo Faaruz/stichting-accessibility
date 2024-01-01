@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import BedrijfRegistration from './BedrijfRegistration';
 import ErvaringsdeskundigeRegistration from './ErvaringsdeskundigeRegistration';
 import '../css/registration.css';
+import axios from "axios";
 
+const apiBaseUrl = 'https://localhost:7294/api';
 const Registration = () => {
     const [selectedOption, setSelectedOption] = useState(null);
 
@@ -10,8 +12,23 @@ const Registration = () => {
         setSelectedOption(option);
     };
 
-    const handleContinueButtonClick = () => {
-        // Add any additional logic needed before showing BedrijfRegistration or ErvaringsdeskundigeRegistration
+    const handleContinueButtonClick = async (formData) => {
+        try {
+            // Include the 'role' in the request data
+            await axios.post(`${apiBaseUrl}/registration`, formData);
+
+            // Redirect or perform any other actions on successful registration
+            if (selectedOption === 'bedrijf') {
+                // Redirect to bedrijf registration page
+                console.log('Redirect to Bedrijf Registration');
+            } else if (selectedOption === 'ervaringsdeskundige') {
+                // Redirect to ervaringsdeskundige registration page
+                console.log('Redirect to Ervaringsdeskundige Registration');
+            }
+        } catch (error) {
+            console.error('Registration failed:', error);
+            // Handle error (display an error message, etc.)
+        }
     };
 
     return (
@@ -39,8 +56,8 @@ const Registration = () => {
                     Bedrijf
                 </label>
             </div>
-            {selectedOption === 'bedrijf' && <BedrijfRegistration />}
-            {selectedOption === 'ervaringsdeskundige' && <ErvaringsdeskundigeRegistration />}
+            {selectedOption === 'bedrijf' && <BedrijfRegistration onSubmit={handleContinueButtonClick} />}
+            {selectedOption === 'ervaringsdeskundige' && <ErvaringsdeskundigeRegistration onSubmit={handleContinueButtonClick} />}
         </div>
     );
 };
