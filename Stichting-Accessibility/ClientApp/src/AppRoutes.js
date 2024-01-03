@@ -7,6 +7,7 @@ import ErvaringsdeskundigeRegistration from "./components/pages/Ervaringsdeskund
 import Onboarding from "./components/pages/Onboarding";
 import Research from "./components/pages/Research";
 import Login from "./components/pages/Login";
+import SupportAdmin from "./components/Chat/SupportAdmin";
 
 const AppRoutes = [
   {
@@ -36,6 +37,10 @@ const AppRoutes = [
   {
     path: "/research",
     element: <Research />
+  },
+  {
+    path: "/support",
+    element: <SupportAdmin />
   },
   {
     path: "/login",

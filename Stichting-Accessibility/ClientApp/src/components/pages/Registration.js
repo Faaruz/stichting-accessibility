@@ -4,7 +4,7 @@ import ErvaringsdeskundigeRegistration from './ErvaringsdeskundigeRegistration';
 import '../css/registration.css';
 import axios from 'axios';
 
-const apiBaseUrl = 'https://stichtingaccessibilitywebapp.azurewebsites.net/api';
+const apiBaseUrl = 'https://localhost:7294/api';
 const Registration = () => {
     const [selectedOption, setSelectedOption] = useState(null);
 

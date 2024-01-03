@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import {useAuth} from "../services/AuthContext";
 import axios from 'axios';
 
-const apiBaseUrl = 'https://stichtingaccessibilitywebapp.azurewebsites.net/api';
+const apiBaseUrl = 'https://localhost:7294/api';
 const Login = () => {
     const { login } = useAuth();
 

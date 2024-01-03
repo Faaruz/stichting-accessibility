@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import '../css/home.css';
+import SupportEngine from "../Chat/SupportEngine";
 
 const Home = () => {
     return (
@@ -15,6 +16,7 @@ const Home = () => {
                     <Button color="primary" size="lg">Registreer</Button>
                 </Link>
             </div>
+            <SupportEngine />
         </div>
     );
 };
