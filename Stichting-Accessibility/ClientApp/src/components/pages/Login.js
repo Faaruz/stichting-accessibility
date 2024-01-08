@@ -4,13 +4,13 @@ import { Link, useNavigate } from 'react-router-dom';
 import {useAuth} from "../services/AuthContext";
 import axios from 'axios';
 
-const apiBaseUrl = 'https://stichtingaccessibilitywebapp.azurewebsites.net/api';
+const apiBaseUrl = 'https://localhost:7294/api';
 const Login = () => {
     const { login } = useAuth();
 
     const [loginData, setLoginData] = useState({
-        username: '',
-        password: '',
+        username: 'test@test.nl',
+        password: 'Test123!',
     });
     const navigate = useNavigate(); // Use navigate within the component
 

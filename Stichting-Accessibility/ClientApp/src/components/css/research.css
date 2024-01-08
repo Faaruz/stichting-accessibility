@@ -1,15 +1,129 @@
-/* Add this style to your CSS file or in the style tag in your component */
-.scrollable-section {
-    overflow: auto; /* Allow scrolling */
-    max-height: 500px; /* Set a max height or adjust based on your design */
+/* Research.css */
+
+/* Styling for the main container */
+body {
+    overflow-y: auto; /* Enable vertical scrollbar on the entire page */
 }
 
-/* Apply the scrollable-section class to the container of your research cards */
 .onderzoeken-page {
-    /* Your existing styles for onderzoeken-page */
-
-    /* Add the scrollable-section class */
-    overflow: auto;
+    padding: 20px;
 }
 
-/* Rest of your existing styles */
+/* Styling for the title container */
+.onderzoeken-page h1 {
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Styling for the tabs */
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tabs span {
+    padding: 10px;
+    margin: 0 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.tabs span:focus {
+    outline: 2px solid #3498db;
+    /* Add other styles for focus as needed */
+}
+
+.tabs span.active-tab {
+    background-color: #3498db; /* Set your active tab background color */
+    color: #fff; /* Set your active tab text color */
+}
+
+.ellipsis-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Styling for the research cards */
+.onderzoek-card {
+    margin-bottom: 20px;
+}
+
+.onderzoek-card button {
+    margin-top: 10px;
+}
+
+/* Styling for the research container */
+.onderzoek-container {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.onderzoek-container img {
+    width: 100%;
+    height: auto;
+}
+
+/* Styling for the Deelnemen row */
+.deelnemen-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.deelnemen-row img {
+    max-width: 100%;
+    height: auto;
+}
+
+.deelnemen-row p {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: #555; /* Set a slightly lighter text color */
+}
+
+/* Styling for the card body */
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px; /* Add padding to the card body */
+}
+
+/* Styling for the button container */
+.button-container {
+    margin-top: 10px; /* Adjust the margin as needed */
+}
+
+/* Styling for the details button */
+.details-button {
+    background-color: #3498db;
+    color: #fff;
+    border: 1px solid #3498db;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.details-button:hover {
+    background-color: #fff;
+    color: #3498db;
+}
+
+.details-button:focus {
+    outline: 2px solid #3498db;
+    /* Add other styles for focus as needed */
+}

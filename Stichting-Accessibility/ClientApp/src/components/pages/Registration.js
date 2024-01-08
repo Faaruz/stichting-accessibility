@@ -3,10 +3,12 @@ import BedrijfRegistration from './BedrijfRegistration';
 import ErvaringsdeskundigeRegistration from './ErvaringsdeskundigeRegistration';
 import '../css/registration.css';
 import axios from 'axios';
+import {useNavigate} from "react-router-dom";
 
-const apiBaseUrl = 'https://stichtingaccessibilitywebapp.azurewebsites.net/api';
+const apiBaseUrl = 'https://localhost:7294/api';
 const Registration = () => {
     const [selectedOption, setSelectedOption] = useState(null);
+    const navigate = useNavigate();
 
     const handleCheckboxChange = (option) => {
         setSelectedOption(option);
@@ -20,9 +22,11 @@ const Registration = () => {
             // Redirect or perform any other actions on successful registration
             if (selectedOption === 'bedrijf') {
                 // Redirect to bedrijf registration page
+                navigate('/bedrijf-dashboard')
                 console.log('Redirect to Bedrijf Registration');
             } else if (selectedOption === 'ervaringsdeskundige') {
                 // Redirect to ervaringsdeskundige registration page
+                navigate('/research')
                 console.log('Redirect to Ervaringsdeskundige Registration');
             }
         } catch (error) {

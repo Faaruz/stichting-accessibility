@@ -17,9 +17,10 @@ const NavMenu = () => {
     setDropdownOpen(!dropdownOpen);
   };
 
-    const handleLogout = () => { 
-        logout();
-    }
+  const handleLogout = () => {
+    logout();
+    localStorage.removeItem('yourTokenKey');
+  };
 
   return (
       <header>
@@ -42,7 +43,7 @@ const NavMenu = () => {
                         <DropdownItem tag={Link} to="/dashboard">View Dashboard</DropdownItem>
                         <DropdownItem tag={Link} to="/research">Onderzoeken</DropdownItem>
                         <DropdownItem divider />
-                        <DropdownItem onClick={logout}>Logout</DropdownItem>
+                        <DropdownItem onClick={handleLogout}>Logout</DropdownItem>
                       </DropdownMenu>
                     </Dropdown>
                   </NavItem>
